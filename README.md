@@ -21,7 +21,17 @@ docker-compose up -d
 # http://localhost:3000
 ```
 
-Eso es todo! La aplicación estará corriendo con 10 productos pre-cargados en la base de datos.
+Eso es todo! La aplicación estará corriendo con **20 productos pre-cargados** en la base de datos.
+
+### ⚠ Nota Importante: Si la Base de Datos está Vacía
+
+El script `init.sql` solo se ejecuta cuando el volumen de PostgreSQL se crea por primera vez. Si ya ejecutaste `docker-compose up` antes, el volumen ya existe y los datos no se insertarán.
+
+**Solución:**
+```bash
+docker-compose down -v  # Eliminar volúmenes
+docker-compose up -d    # Crear volúmenes nuevos con datos
+```
 
 ## Tecnologías Utilizadas
 
@@ -55,9 +65,11 @@ crud_docker/
 - CRUD completo de productos (Crear, Leer, Actualizar, Eliminar)
 - Interfaz moderna y responsive
 - API RESTful
-- Base de datos PostgreSQL con datos iniciales
+- Base de datos PostgreSQL con **20 productos de ejemplo pre-cargados**
 - Contenedores Docker independientes para app y BD
 - Persistencia de datos con volúmenes Docker
+- Validaciones de datos en la base de datos
+- Índices para optimizar búsquedas
 
 ## Requisitos Previos
 

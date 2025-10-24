@@ -24,10 +24,28 @@ Abre tu navegador en: **http://localhost:3000**
 ## Eso es Todo!
 
 La aplicación incluye:
-- 10 productos pre-cargados en la base de datos
+- **20 productos pre-cargados** en la base de datos
 - Interfaz web moderna para gestionar productos
 - API REST completa
 - Base de datos PostgreSQL con persistencia
+
+---
+
+## ¿La Base de Datos está Vacía?
+
+Si no ves productos en la aplicación, es porque el volumen de Docker ya existía de una ejecución anterior. El script `init.sql` solo se ejecuta cuando el volumen se crea por primera vez.
+
+**Solución rápida:**
+
+```bash
+# Detener y eliminar contenedores y volúmenes
+docker-compose down -v
+
+# Volver a levantar (esto creará volúmenes nuevos con datos)
+docker-compose up -d
+```
+
+Ahora deberías ver los 20 productos en http://localhost:3000
 
 ---
 

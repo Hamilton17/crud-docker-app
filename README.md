@@ -23,15 +23,24 @@ docker-compose up -d
 
 Eso es todo! La aplicación estará corriendo con **20 productos pre-cargados** en la base de datos.
 
-### ⚠ Nota Importante: Si la Base de Datos está Vacía
+### ⚠ Solución Rápida a Problemas Comunes
 
-El script `init.sql` solo se ejecuta cuando el volumen de PostgreSQL se crea por primera vez. Si ya ejecutaste `docker-compose up` antes, el volumen ya existe y los datos no se insertarán.
+Si tienes **base de datos vacía** o **errores de contenedores en uso**, usa el script de reset:
 
-**Solución:**
+**Windows:**
 ```bash
-docker-compose down -v  # Eliminar volúmenes
-docker-compose up -d    # Crear volúmenes nuevos con datos
+reset.bat
 ```
+
+**Linux/Mac:**
+```bash
+chmod +x reset.sh
+./reset.sh
+```
+
+Este script limpia todo y reinicia la aplicación con datos frescos.
+
+**¿Más problemas?** Consulta [TROUBLESHOOTING.md](TROUBLESHOOTING.md) para soluciones detalladas.
 
 ## Tecnologías Utilizadas
 
@@ -54,10 +63,14 @@ crud_docker/
 │   ├── Dockerfile          # Imagen Docker para la app
 │   └── .dockerignore       # Archivos excluidos del build
 ├── database/
-│   ├── init.sql            # Script de inicialización de BD
+│   ├── init.sql            # Script de inicialización con 20 productos
 │   └── Dockerfile          # Imagen Docker para PostgreSQL
 ├── docker-compose.yml      # Orquestación de servicios
-└── README.md              # Este archivo
+├── reset.bat / reset.sh    # Script para reiniciar con datos frescos
+├── TROUBLESHOOTING.md      # Solución de problemas comunes
+├── QUICK_START.md          # Guía de inicio rápido
+├── GITHUB_SETUP.md         # Guía para subir a GitHub
+└── README.md               # Documentación principal
 ```
 
 ## Características

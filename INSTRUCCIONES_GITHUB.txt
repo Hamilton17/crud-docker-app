@@ -1,0 +1,152 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  INSTRUCCIONES PARA SUBIR A GITHUB                           ║
+║                  Aplicación CRUD con Docker + PostgreSQL                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+El proyecto está LISTO para subir a GitHub. Sigue estos pasos:
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 1: CONFIGURAR GIT (Solo la primera vez)
+═══════════════════════════════════════════════════════════════════════════════
+
+Abre tu terminal en este directorio (D:\crud_docker) y ejecuta:
+
+    git config --global user.name "Tu Nombre Completo"
+    git config --global user.email "tu-email@ejemplo.com"
+
+Ejemplo:
+    git config --global user.name "Juan Perez"
+    git config --global user.email "juan.perez@gmail.com"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 2: CREAR EL COMMIT INICIAL
+═══════════════════════════════════════════════════════════════════════════════
+
+    git commit -m "Initial commit: CRUD Application with Docker + PostgreSQL"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 3: CREAR UN REPOSITORIO EN GITHUB
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Ve a: https://github.com
+2. Inicia sesión (o crea una cuenta si no tienes)
+3. Haz clic en el botón verde "New" (esquina superior derecha)
+4. Configura el repositorio:
+
+   - Repository name: crud-docker-app  (o el nombre que prefieras)
+   - Description: CRUD Application with Docker + PostgreSQL
+   - Visibilidad: ✓ Public (para que cualquiera pueda clonarlo)
+   - NO marques "Initialize this repository with a README"
+
+5. Haz clic en "Create repository"
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 4: CONECTAR TU REPOSITORIO LOCAL CON GITHUB
+═══════════════════════════════════════════════════════════════════════════════
+
+GitHub te mostrará comandos similares a estos. Cópialos y pégalos en tu terminal:
+
+    git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+    git branch -M main
+    git push -u origin main
+
+IMPORTANTE: Reemplaza TU_USUARIO y TU_REPOSITORIO con tus datos reales.
+
+Ejemplo:
+    git remote add origin https://github.com/juanperez/crud-docker-app.git
+    git branch -M main
+    git push -u origin main
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PASO 5: AUTENTICACIÓN (Si te la pide)
+═══════════════════════════════════════════════════════════════════════════════
+
+Si GitHub te pide usuario y contraseña:
+
+1. Usuario: tu nombre de usuario de GitHub
+2. Contraseña: USA UN PERSONAL ACCESS TOKEN (no tu contraseña real)
+
+Para crear un Personal Access Token:
+   a) Ve a: https://github.com/settings/tokens
+   b) "Generate new token" → "Generate new token (classic)"
+   c) Dale un nombre: "CRUD Docker App"
+   d) Selecciona: ✓ repo (todos los permisos de repo)
+   e) Clic en "Generate token"
+   f) COPIA EL TOKEN INMEDIATAMENTE (no podrás verlo otra vez)
+   g) Usa este token como contraseña cuando Git te lo pida
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¡LISTO! VERIFICA QUE ESTÁ EN GITHUB
+═══════════════════════════════════════════════════════════════════════════════
+
+1. Ve a: https://github.com/TU_USUARIO/TU_REPOSITORIO
+2. Deberías ver todos tus archivos
+3. El README.md se mostrará en la página principal
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ACTUALIZAR README CON LA URL CORRECTA
+═══════════════════════════════════════════════════════════════════════════════
+
+Ahora edita el README.md y reemplaza todas las menciones de:
+   https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+
+Con la URL real de tu repositorio, por ejemplo:
+   https://github.com/juanperez/crud-docker-app.git
+
+Luego:
+    git add README.md
+    git commit -m "Update repository URL in README"
+    git push
+
+═══════════════════════════════════════════════════════════════════════════════
+
+AHORA CUALQUIERA PUEDE USAR TU PROYECTO ASÍ:
+═══════════════════════════════════════════════════════════════════════════════
+
+    git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+    cd TU_REPOSITORIO
+    docker-compose up -d
+
+Y la aplicación estará corriendo en http://localhost:3000
+
+═══════════════════════════════════════════════════════════════════════════════
+
+RESUMEN DE COMANDOS (COPIA Y PEGA)
+═══════════════════════════════════════════════════════════════════════════════
+
+# 1. Configurar Git (cambiar nombre y email)
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu-email@ejemplo.com"
+
+# 2. Crear commit
+git commit -m "Initial commit: CRUD Application with Docker + PostgreSQL"
+
+# 3. Crear repo en GitHub manualmente en https://github.com/new
+
+# 4. Conectar con GitHub (reemplazar con tu URL real)
+git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+git branch -M main
+git push -u origin main
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ARCHIVOS DE AYUDA INCLUIDOS:
+═══════════════════════════════════════════════════════════════════════════════
+
+- GITHUB_SETUP.md       - Guía detallada para subir a GitHub
+- QUICK_START.md        - Guía rápida para usuarios que clonen el repo
+- README.md             - Documentación completa del proyecto
+- DOCKERHUB_INSTRUCTIONS.md - Guía para subir imágenes a DockerHub
+
+═══════════════════════════════════════════════════════════════════════════════
+
+¿Tienes problemas? Revisa GITHUB_SETUP.md para más detalles y soluciones.
+
+═══════════════════════════════════════════════════════════════════════════════

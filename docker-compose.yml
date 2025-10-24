@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # Servicio de Base de Datos PostgreSQL
+  db:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: cruddb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - crud_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Servicio de la Aplicación Web (Frontend + Backend)
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: crud_app
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: cruddb
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - crud_network
+    restart: unless-stopped
+
+# Volúmenes para persistencia de datos
+volumes:
+  postgres_data:
+    driver: local
+
+# Red personalizada
+networks:
+  crud_network:
+    driver: bridge

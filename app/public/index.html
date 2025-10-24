@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD - Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestión de Productos</h1>
+            <p>Aplicación CRUD con Docker + PostgreSQL</p>
+        </header>
+
+        <div class="form-container">
+            <h2 id="form-title">Agregar Nuevo Producto</h2>
+            <form id="producto-form">
+                <input type="hidden" id="producto-id">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Agregar Producto</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>Lista de Productos</h2>
+            <table id="productos-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productos-tbody">
+                    <tr>
+                        <td colspan="5" class="loading">Cargando productos...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
